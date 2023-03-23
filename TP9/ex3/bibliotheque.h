@@ -1,0 +1,6 @@
+
+
+void freeMalloc();
+
+
+void printTab();

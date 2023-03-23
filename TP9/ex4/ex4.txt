@@ -1,0 +1,2 @@
+Free utilise les informations stockées par malloc sur la zone allouée
+pour connaitre la taille de la zone et pour ne pas segfault
