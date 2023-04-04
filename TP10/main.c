@@ -1,5 +1,5 @@
 #include <stdio.h>
-//#include "bibliotheque.h"
+#include <stdlib.h>
 
 void swap_mem(void* z1, void* z2, size_t size){
     char* x = (char*) z1;
@@ -14,7 +14,7 @@ void swap_mem(void* z1, void* z2, size_t size){
     }
 }
 
-int str_cmp(char *p, char *q){
+int str_cmp(char *p, char *q){//est ce que 2 chaines sont égales
     while (*p++==*q++);
     return *q-*p;
 }
@@ -27,8 +27,11 @@ typedef struct cell{
 }Cell, *List;
 
 
-Cell* allocate_cell(char* first, char* last, int age){
-
+/*Cell* allocate_cell(char* first, char* last, int age){
+    Cell* cell = malloc(sizeof(Cell));
+    cell->first_name = malloc(sizeof(char)*(strlen(first) + 1));
+    cell->last_name = malloc(sizeof(char)*(strlen(last) + 1));
+    call->age = malloc(sizeof(int));
 }
 
 int age_order(Cell* p1, Cell* p2){
@@ -45,38 +48,41 @@ void ordered_insertion(List* l, Cell* new, int order_func(Cell*, Cell*)){
 
 void print_list(List l){
     while(l!=NULL){
-        printf("%f ", l->first_name);
-        printf("%f ", l->last_name);
-        printf("%f\n", l->age);
+        printf("%s ", l->first_name);
+        printf("%s ", l->last_name);
+        printf("%d\n", l->age);
         l=l->next;
     }
 }
 
 void free_list(List l){
-
-}
+    while(l!=NULL){
+        free(l->first_name);
+        free(l->last_name);
+        free(l);
+        l=l->next;
+    }
+}*/
 
 
 int main(int argc, char const *argv[])
 {
-    List l;
-    Cell* c;
-    Cell c2;
-    l->age;
-    c->age;
-    c2.age;
     
 
 
 
-    /*FILE *f = fopen(argv[1], "r");
+    FILE *f = fopen("liste_nom.txt", "r");
 
     if (f == NULL ){ fprintf(f,"can't open file %s", argv[1]); exit(1);}
 
-    int i;
-    //for(i=0;!=EOF;i++);
+    char line[50];
+    while (fgets(line, 50, f) != NULL) {
+        printf("%s", line);
+        //strtok
+    }
 
-    printf("%d", i);*/
+    // Fermeture du fichier
+    fclose(f);
 
 
     return 0;
