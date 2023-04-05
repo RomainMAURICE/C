@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void swap_mem(void* z1, void* z2, size_t size){
     char* x = (char*) z1;
@@ -27,13 +28,13 @@ typedef struct cell{
 }Cell, *List;
 
 
-/*Cell* allocate_cell(char* first, char* last, int age){
+Cell* allocate_cell(char* first, char* last){
     Cell* cell = malloc(sizeof(Cell));
     cell->first_name = malloc(sizeof(char)*(strlen(first) + 1));
     cell->last_name = malloc(sizeof(char)*(strlen(last) + 1));
-    call->age = malloc(sizeof(int));
 }
 
+/*
 int age_order(Cell* p1, Cell* p2){
 
 }
@@ -67,22 +68,27 @@ void free_list(List l){
 
 int main(int argc, char const *argv[])
 {
-    FILE *f = fopen("liste_nom.txt", "r");
+    FILE *f = fopen(argv[1]/*"liste_nom.txt"*/, "r");
     if (f == NULL ){ fprintf(f,"can't open file %s", argv[1]); exit(1);}
 
-    Cell c;
+    //Cell c;
     
     char line[50];
     while (fgets(line, 50, f) != NULL) {
         printf("%s", line);
 
-        int prenomParse=strtok(line, " ");
-        int nomParse=strtok(NULL, " ");
-        int ageParse=strtok(NULL, " ");
+        char *prenomParse = NULL;
+        char *nomParse = NULL;
+        char *ageParse = NULL;
+
+        prenomParse = strtok(line, " ");
+        nomParse = strtok(NULL, " ");
+        ageParse = strtok(NULL, " ");
 
         printf("%s\n", prenomParse);
         printf("%s\n", nomParse);
         printf("%s\n", ageParse);
+
     }
 
     // Fermeture du fichier
