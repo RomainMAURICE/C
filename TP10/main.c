@@ -67,23 +67,26 @@ void free_list(List l){
 
 int main(int argc, char const *argv[])
 {
-    
-
-
-
     FILE *f = fopen("liste_nom.txt", "r");
-
     if (f == NULL ){ fprintf(f,"can't open file %s", argv[1]); exit(1);}
 
+    Cell c;
+    
     char line[50];
     while (fgets(line, 50, f) != NULL) {
         printf("%s", line);
-        //strtok
+
+        int prenomParse=strtok(line, " ");
+        int nomParse=strtok(NULL, " ");
+        int ageParse=strtok(NULL, " ");
+
+        printf("%s\n", prenomParse);
+        printf("%s\n", nomParse);
+        printf("%s\n", ageParse);
     }
 
     // Fermeture du fichier
     fclose(f);
-
 
     return 0;
 }
