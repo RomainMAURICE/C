@@ -7,8 +7,9 @@ typedef struct node {
     struct node *next;
 }Node, *List;
 
-void initListe(){
-    
+void initListe(char *word, Node node){
+    Node *node = malloc(sizeof(Node));
+    node.
 }
 
 int main(int argc, char const *argv[])
@@ -24,13 +25,20 @@ int main(int argc, char const *argv[])
 
     while (fscanf(f, "%s", mot)==1){
         List *list = (List*) malloc(sizeof(list));
-        Node *node = (Node*) malloc(sizeof(node));
+        Node *node = (Node*) malloc(sizeof(mot));
+
+
         node->word = mot;
-        node->next = NULL;
+        if(list vide){
+            node->next = NULL; 
+        }else{
+
+        }
 
 
 
-        printf("%s ", mot);
+
+        printf("%s ", node->word);
         nbrMot++;
     }
     printf("%d", nbrMot);
